@@ -8,7 +8,7 @@ import { School, Users, BookOpen, GraduationCap } from "lucide-react";
 const stats = [
   {
     icon: School,
-    value: 5,
+    value: 3,
     suffix: "+",
     label: "Years in Education Tech",
     description: "Supporting schools since 2014",
@@ -22,7 +22,7 @@ const stats = [
   },
   {
     icon: BookOpen,
-    value: 20000,
+    value: 2000,
     suffix: "+",
     label: "Students Managed",
     description: "Admissions, academics & attendance",

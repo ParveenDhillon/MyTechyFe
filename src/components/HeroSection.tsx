@@ -31,7 +31,7 @@ const HeroSection = () => {
             Run Your School
             <br />
             <span className="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
-              Smarter, Faster & Stress-Free
+              Not Harder
             </span>
           </h1>
 
