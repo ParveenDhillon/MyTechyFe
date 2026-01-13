@@ -99,61 +99,77 @@ const AnimatedCounter = ({
 
 const StatsSection = () => {
   return (
-    <section className="py-20 md:py-28 hero-gradient hero-pattern relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0">
-        <div className="absolute top-10 left-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      </div>
+    <section className="py-16 md:py-28 bg-gradient-to-b from-slate-50 to-slate-100 relative overflow-hidden">
+  {/* Background decoration */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute top-10 left-1/4 w-64 h-64 bg-indigo-100/30 rounded-full blur-3xl" />
+    <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-blue-100/30 rounded-full blur-3xl" />
+  </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-accent font-semibold text-sm uppercase tracking-wider mb-4">
-            Trusted by Educational Institutions
-          </span>
+  <div className="container mx-auto px-4 relative z-10">
+    {/* Header */}
+    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+      <span className="inline-block text-indigo-600 font-semibold text-xs sm:text-sm uppercase tracking-wider mb-3">
+        Trusted by Educational Institutions
+      </span>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-950 mb-6">
-            Impactful Numbers Behind{" "}
-            <span className="text-accent">
-              Smarter School Management
-            </span>
-          </h2>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4 md:mb-6">
+        Impactful Numbers Behind{" "}
+        <span className="text-gradient bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">
+          Smarter School Management
+        </span>
+      </h2>
 
-          <p className="text-gray-700 text-lg">
-            We empower schools with reliable technology to manage admissions,
-            academics, communication, and operations — all in one platform.
-          </p>
+      <p className="text-gray-600 text-base sm:text-lg">
+        We empower schools with reliable technology to manage admissions,
+        academics, communication, and operations — all in one platform.
+      </p>
+    </div>
+
+    {/* Stats Grid */}
+    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+      {stats.map((stat, index) => (
+        <div
+          key={index}
+          className="
+            relative
+            text-center 
+            bg-white 
+            rounded-3xl 
+            border border-gray-200 
+            px-4 py-6 sm:p-6 md:p-8
+            shadow-sm
+            hover:shadow-xl
+            hover:-translate-y-1
+            transition-all
+          "
+        >
+          {/* Icon */}
+          <div className="mx-auto mb-3 sm:mb-4 w-14 h-14 rounded-full bg-gradient-to-br from-indigo-500 to-blue-500 text-white flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+            <stat.icon className="w-7 h-7" />
+          </div>
+
+          {/* Counter */}
+          <AnimatedCounter
+            end={stat.value}
+            suffix={stat.suffix}
+          />
+
+          {/* Label */}
+          <div className="mt-2 font-semibold text-base text-slate-900">
+            {stat.label}
+          </div>
+
+          {/* Description */}
+          <div className="mt-1 text-sm text-gray-600 leading-snug">
+            {stat.description}
+          </div>
         </div>
+      ))}
+    </div>
+  </div>
+</section>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="text-center p-6 md:p-8 bg-white/70 backdrop-blur-sm rounded-2xl border border-gray-200 hover:shadow-lg transition-all"
-            >
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-accent/15 text-accent mb-4">
-                <stat.icon className="w-7 h-7" />
-              </div>
-
-              <AnimatedCounter
-                end={stat.value}
-                suffix={stat.suffix}
-              />
-
-              <div className="font-semibold mt-2 text-blue-950">
-                {stat.label}
-              </div>
-
-              <div className="text-sm text-gray-600 mt-1">
-                {stat.description}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 };
 

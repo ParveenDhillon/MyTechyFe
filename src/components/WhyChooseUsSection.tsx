@@ -49,61 +49,61 @@ const features = [
 
 const WhyChooseUsSection = () => {
   return (
-    <section id="why-us" className="py-16 md:py-20 bg-slate-50">
-      <div className="container mx-auto px-4">
+    <section id="why-us" className="py-20 md:py-28 bg-gradient-to-b from-slate-50 to-slate-100">
+  <div className="container mx-auto px-4">
 
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="inline-block mb-4 text-sm font-semibold uppercase tracking-wide text-blue-600">
-            Why Schools Choose Us
-          </span>
+    {/* Header */}
+    <div className="max-w-3xl mx-auto text-center mb-20">
+      <span className="inline-block mb-4 text-sm font-semibold uppercase tracking-wide text-blue-600">
+        Why Schools Choose Us
+      </span>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 mb-5">
-            A Smarter Way to
-            <span className="text-blue-600"> Manage Your School</span>
-          </h2>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6">
+        A Smarter Way to 
+        <span className="text-gradient bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent"> Manage Your School</span>
+      </h2>
 
-          <p className="text-lg text-slate-600">
-            Designed specifically for educational institutions to simplify
-            operations, improve communication, and support better decision-making.
+      <p className="text-lg md:text-xl text-slate-600">
+        Designed specifically for educational institutions to simplify operations, improve communication, and support better decision-making.
+      </p>
+    </div>
+
+    {/* Features Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      {features.map((feature, index) => (
+        <div
+          key={index}
+          className="group bg-white rounded-3xl p-8 shadow-lg border border-slate-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+        >
+          {/* Icon */}
+          <div className="mb-6 w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center text-white text-2xl transform group-hover:scale-110 transition-transform duration-300">
+            <feature.icon className="w-8 h-8" />
+          </div>
+
+          {/* Title */}
+          <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+            {feature.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-slate-600 text-sm leading-relaxed">
+            {feature.description}
           </p>
         </div>
+      ))}
+    </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="group bg-white rounded-2xl border border-slate-200 p-8 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-100"
-            >
-              {/* Icon */}
-              <div className="mb-6 w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                <feature.icon className="w-7 h-7" />
-              </div>
-
-              {/* Title */}
-              <h3 className="text-lg font-semibold text-slate-900 mb-3">
-                {feature.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-sm text-slate-600 leading-relaxed">
-                {feature.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom Trust Line */}
-        <div className="mt-20 text-center">
-          <div className="inline-flex items-center gap-2 text-sm text-slate-600 bg-white border border-slate-200 rounded-full px-5 py-3 shadow-sm">
-            <CheckCircleIcon className="w-5 h-5 text-blue-600" />
-            Trusted by schools for smooth operations and better outcomes
-          </div>
-        </div>
-
+    {/* Bottom Trust Line */}
+    <div className="mt-20 text-center">
+      <div className="inline-flex items-center gap-2 text-sm text-slate-600 bg-white border border-slate-200 rounded-full px-6 py-3 shadow-md">
+        <CheckCircleIcon className="w-5 h-5 text-gradient bg-gradient-to-r from-blue-500 to-indigo-600 text-transparent bg-clip-text" />
+        Trusted by schools for smooth operations and better outcomes
       </div>
-    </section>
+    </div>
+
+  </div>
+</section>
+
   );
 };
 

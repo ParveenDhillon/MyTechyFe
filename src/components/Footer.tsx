@@ -1,5 +1,4 @@
 import {
-  LayoutDashboard,
   Facebook,
   Twitter,
   Linkedin,
@@ -9,37 +8,6 @@ import {
   ArrowUp,
   GraduationCap,
 } from "lucide-react";
-
-const productLinks = [
-  { label: "Features", href: "#features" },
-  { label: "Modules", href: "#modules" },
-  { label: "Why Our Software", href: "#why-us" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Request Demo", href: "#demo" },
-];
-
-const moduleLinks = [
-  { label: "Admissions CRM", href: "#modules" },
-  { label: "Student Management", href: "#modules" },
-  { label: "Fee & Accounts", href: "#modules" },
-  { label: "Attendance & Exams", href: "#modules" },
-  { label: "Parent & Staff Portal", href: "#modules" },
-];
-
-const companyLinks = [
-  { label: "About Company", href: "#about" },
-  { label: "How It Works", href: "#workflow" },
-  { label: "Use Cases", href: "#use-cases" },
-  { label: "Support", href: "#support" },
-  { label: "Contact Sales", href: "#contact" },
-];
-
-const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-];
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -52,12 +20,34 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-foreground text-primary-foreground">
+    <footer className="bg-slate-950 text-slate-300 relative">
+
+      {/* Top CTA Strip */}
+      <div className="border-b border-white/10">
+        <div className="container mx-auto px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 className="text-2xl font-semibold text-white">
+              Ready to modernize your school?
+            </h3>
+            <p className="text-slate-400 mt-1">
+              See how EduTechyFe fits your academic workflow.
+            </p>
+          </div>
+
+          <button
+            onClick={() => scrollToSection("#demo")}
+            className="px-7 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition"
+          >
+            Request a Demo
+          </button>
+        </div>
+      </div>
+
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
-          {/* Product Info */}
+          {/* Brand */}
           <div>
             <a
               href="#home"
@@ -65,95 +55,100 @@ const Footer = () => {
                 e.preventDefault();
                 scrollToSection("#home");
               }}
-              className="flex items-center gap-2 mb-6"
+              className="flex items-center gap-3 mb-5"
             >
-              <div className="p-2 rounded-lg bg-accent">
-                <GraduationCap className="w-6 h-6 text-accent-foreground" />
+              <div className="p-2 rounded-lg bg-blue-600">
+                <GraduationCap className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold">EduTechyFe</span>
+              <span className="text-xl font-semibold text-white">
+                EduTechyFe
+              </span>
             </a>
 
-            <p className="text-primary-foreground/70 leading-relaxed mb-6">
-              A modern school management software designed to digitize
-              admissions, academics, fees, communication, and reporting —
-              all from one powerful platform.
+            <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
+              A modern school management platform helping institutions
+              streamline admissions, academics, fees, communication, and reporting.
             </p>
 
-            <div className="flex gap-3">
-              {socialLinks.map((social, i) => (
+            <div className="flex gap-3 mt-6">
+              {[
+                { icon: Facebook, label: "Facebook" },
+                { icon: Twitter, label: "Twitter" },
+                { icon: Linkedin, label: "LinkedIn" },
+                { icon: Instagram, label: "Instagram" },
+              ].map(({ icon: Icon, label }, i) => (
                 <a
                   key={i}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition"
+                  href="#"
+                  aria-label={label}
+                  title={label}
+                  className="w-9 h-9 rounded-md bg-white/5 hover:bg-white/10 flex items-center justify-center transition"
                 >
-                  <social.icon className="w-5 h-5" />
+                  <Icon className="w-4 h-4 text-slate-300" />
                 </a>
               ))}
             </div>
+
           </div>
 
-          {/* Product Links */}
+          {/* Product */}
           <div>
-            <h3 className="text-lg font-bold mb-6">Product</h3>
-            <ul className="space-y-3">
-              {productLinks.map((link, i) => (
-                <li key={i}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(link.href);
-                    }}
-                    className="text-primary-foreground/70 hover:text-accent transition"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+            <h4 className="text-sm font-semibold text-white mb-5 uppercase tracking-wide">
+              Product
+            </h4>
+            <ul className="space-y-3 text-sm">
+              {["Features", "Modules", "Why Choose Us", "Pricing", "Demo"].map(
+                (item, i) => (
+                  <li key={i}>
+                    <a
+                      href="#"
+                      className="hover:text-white transition"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
           {/* Modules */}
           <div>
-            <h3 className="text-lg font-bold mb-6">Core Modules</h3>
-            <ul className="space-y-3">
-              {moduleLinks.map((link, i) => (
+            <h4 className="text-sm font-semibold text-white mb-5 uppercase tracking-wide">
+              Solutions
+            </h4>
+            <ul className="space-y-3 text-sm">
+              {[
+                "Admissions CRM",
+                "Student Management",
+                "Fee & Accounts",
+                "Attendance & Exams",
+                "Parent & Staff Portal",
+              ].map((item, i) => (
                 <li key={i}>
-                  <a
-                    href={link.href}
-                    className="text-primary-foreground/70 hover:text-accent transition"
-                  >
-                    {link.label}
+                  <a href="#" className="hover:text-white transition">
+                    {item}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact / Sales */}
+          {/* Contact */}
           <div>
-            <h3 className="text-lg font-bold mb-6">Talk to Us</h3>
-            <ul className="space-y-4 text-primary-foreground/70">
+            <h4 className="text-sm font-semibold text-white mb-5 uppercase tracking-wide">
+              Contact
+            </h4>
+
+            <ul className="space-y-4 text-sm">
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5" />
+                <Phone className="w-4 h-4" />
                 <span>Sales & Demo Support</span>
               </li>
+
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5" />
+                <Mail className="w-4 h-4" />
                 <span>sales@schoolerppro.com</span>
-              </li>
-              <li>
-                <a
-                  href="#demo"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("#demo");
-                  }}
-                  className="inline-block mt-4 px-6 py-3 rounded-lg bg-accent text-accent-foreground font-medium hover:opacity-90 transition"
-                >
-                  Request Free Demo
-                </a>
               </li>
             </ul>
           </div>
@@ -162,29 +157,33 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-primary-foreground/10">
-        <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} EduTechyFe
-          </p>
-          <div className="flex gap-6 text-sm">
-            <a href="#" className="text-primary-foreground/60 hover:text-accent">
-              Privacy Policy
+      <div className="border-t border-white/10">
+        <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+          <span>
+            © {new Date().getFullYear()} EduTechyFe. All rights reserved.
+          </span>
+
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-white transition">
+              Privacy
             </a>
-            <a href="#" className="text-primary-foreground/60 hover:text-accent">
-              Terms of Use
+            <a href="#" className="hover:text-white transition">
+              Terms
+            </a>
+            <a href="#" className="hover:text-white transition">
+              Security
             </a>
           </div>
         </div>
       </div>
 
-      {/* Scroll to Top */}
+      {/* Scroll To Top */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-accent text-accent-foreground shadow-lg hover:-translate-y-1 transition z-40 flex items-center justify-center"
+        className="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg transition flex items-center justify-center z-40"
         aria-label="Scroll to top"
       >
-        <ArrowUp className="w-5 h-5" />
+        <ArrowUp className="w-4 h-4" />
       </button>
     </footer>
   );
