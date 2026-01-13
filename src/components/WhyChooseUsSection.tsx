@@ -49,7 +49,7 @@ const features = [
 
 const WhyChooseUsSection = () => {
   return (
-    <section id="why-us" className="py-20 md:py-28 bg-gradient-to-b from-slate-50 to-slate-100">
+    <section id="why-us" className="py-8 md:py-24 bg-gradient-to-b from-slate-50 to-slate-100">
   <div className="container mx-auto px-4">
 
     {/* Header */}

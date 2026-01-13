@@ -11,7 +11,7 @@ const stats = [
     value: 3,
     suffix: "+",
     label: "Years in Education Tech",
-    description: "Supporting schools since 2014",
+    description: "Supporting schools since 2022",
   },
   {
     icon: Users,

@@ -92,7 +92,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="pt-4 md:pt-20 pb-4 bg-background">
+    <section id="services" className="pt-4 md:pt-24 pb-4 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
